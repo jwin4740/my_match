@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-image: url("../images/red.jpg");
     background-size: cover;
@@ -112,13 +116,106 @@ p {
     margin-bottom: 0px;
 }
 
-.matchbox {
+.matchboxuser {
     font-size: 20px;
     padding: 10px;
     background-color: red;
     color: black;
     font-weight: bolder;
-    border: solid 5px yellow;
+    border: solid 10px green;
+}
+.matchboxone {
+    position: absolute;
+    top: 10px;
+    width: 336px;
+    height: 365px;
+    right: 70px;
+    font-size: 20px;
+    padding: 10px;
+    background-color: red;
+    color: black;
+    font-weight: bolder;
+    border: solid 10px red;
+    z-index: 2;
+    /* display: none;*/
+}
+.matchboxone {
+    position: absolute;
+    top: 10px;
+    width: 336px;
+    height: 365px;
+    right: 70px;
+    font-size: 20px;
+    padding: 10px;
+    background-color: red;
+    color: black;
+    font-weight: bolder;
+    border: solid 10px white;
+    z-index: 1;
+    /* display: none;*/
+}
+.matchboxtwo {
+    position: absolute;
+    top: 10px;
+    width: 336px;
+    height: 365px;
+    right: 110px;
+    font-size: 20px;
+    padding: 10px;
+    background-color: red;
+    color: black;
+    font-weight: bolder;
+    border: solid 10px black;
+    z-index: 2;
+    /* display: none;*/
+}
+
+
+.matchboxthree {
+    position: absolute;
+    top: 10px;
+    width: 336px;
+    height: 365px;
+    left: 75px;
+    font-size: 20px;
+    padding: 10px;
+    background-color: red;
+    color: black;
+    font-weight: bolder;
+    border: solid 10px yellow;
+    z-index: 3;
+    /* display: none;*/
+}
+
+.matchboxfour {
+    position: absolute;
+    top: 10px;
+    width: 336px;
+    height: 365px;
+    left: 115px;
+    font-size: 20px;
+    padding: 10px;
+    background-color: red;
+    color: black;
+    font-weight: bolder;
+    border: solid 10px purple;
+    z-index: 4;
+    /* display: none;*/
+}
+
+
+.matchbox {
+    position: absolute;
+    width: 356px;
+    height: 385px;
+    font-size: 20px;
+    padding: 10px;
+    background-color: red;
+    color: black;
+    font-weight: bolder;
+    border: solid 10px blue;
+    z-index: 5;
+    /* display: none;*/
 }
 
 #userName {
@@ -154,10 +251,12 @@ p {
 .leftarrow {
     position: absolute;
     top: 135px;
+    /*display: none;*/
 }
 
 .rightarrow {
     position: absolute;
     top: 195px;
     transform: rotate(180deg);
+    /*display: none;*/
 }

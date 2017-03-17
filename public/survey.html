@@ -28,7 +28,8 @@
                     <li><a href="/survey">Take Survey</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a target="_blank" href="/api/friends">API link</a></li>
+                    <li><a target="_blank" href="/api/friends">API friends link</a></li>
+                    <li><a target="_blank" href="/api/user">API user link</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Explore <span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -80,6 +81,8 @@
                 </div>
             </div>
             <div id="questionsDiv">
+            <hr>
+            <h2> On a scale of 1 (lowest) to 10 (highest), select how much you agree with the following statements: </h2>
                 <h3><strong>Question 1</strong></h3>
                 <h4>Most moral decisions are based on absolute truth.</h4>
                 <select data-placeholder="" class="chosen-select" data-cat="morals" id="q1">
@@ -137,7 +140,7 @@
                     <option value="10">10</option>
                 </select>
                 <h3><strong>Question 5</strong></h3>
-                <h4>Think of the top 3  material things (not people or career related) that are most important to you. How disruptive would this be (10 is most disruptive)? </h4>
+                <h4>Think of the top 3 material things (not people or career related) that are most important to you. If they were suddenly taken away, how disruptive would this be to you life (10 is most disruptive)? </h4>
                 <select data-placeholder="" class="chosen-select" data-cat="superficiality" id="q5">
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -193,7 +196,7 @@
                     <option value="10">10</option>
                 </select>
                 <h3><strong>Question 9</strong></h3>
-                <h4>How important is admitting your key mistakes to your partner?</h4>
+                <h4>How important is it to admit when you are wrong?</h4>
                 <select data-placeholder="" class="chosen-select" data-cat="morals" id="q9">
                     <option value="1">1</option>
                     <option value="2">2</option>
