@@ -28,7 +28,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a target="_blank" href="/api/friends">API friends link</a></li>
-                     <li><a target="_blank" href="/api/user">API user link</a></li>
+                    <li><a target="_blank" href="/api/user">API user link</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Explore <span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -64,7 +64,7 @@
                 </div>
                 <div class="col-lg-4">
                     <div id="animationStage">
-                       <!--  <div class="panel panel-default matchboxone">
+                        <!--  <div class="panel panel-default matchboxone">
                             <div class="panel-body matcher">
                                 <img src="https://uwmccblog.files.wordpress.com/2017/01/image-placeholder-500x500.jpg?w=200" class="matchResult">
                                 <h6>MATCHNAME</h6>
@@ -80,6 +80,7 @@
                                 <strong><p class="bio">SHORT BIO: <span></span></p></strong>
                             </div>
                         </div> -->
+<!--     ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd -->
                         <div class="panel panel-default matchbox">
                             <div class="panel-body matcher">
                                 <img src="https://uwmccblog.files.wordpress.com/2017/01/image-placeholder-500x500.jpg?w=200" class="matchResult" id="yourMatch">
@@ -88,9 +89,10 @@
                                 <strong><p class="bio">SHORT BIO: <span id="matchBio"></span></p></strong>
                             </div>
                         </div>
-                  <!--       <div class="panel panel-default matchboxthree">
+<!-- ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd- -->
+                        <!--       <div class="panel panel-default matchboxthree">
                             <div class="panel-body matcher">
-                                <img src="https://uwmccblog.files.wordpress.com/2017/01/image-placeholder-500x500.jpg?w=200" class="matchResult">
+                                <img src="https://uwmccblog.files.wordpress.com/2017/01/image-placeholder-500x500.jpg?w=200" class="matchResult"> 
                                 <h6>MATCHNAME</h6>
                                 <strong><p class="bio">AGE: <span></span></p></strong>
                                 <strong><p class="bio">SHORT BIO: <span></span></p></strong>
@@ -318,38 +320,29 @@
                 }
             }
         }
-        displayMatchDetails();
+        displayUserData();
+
     }
 
-    // function that displays the match content in the html by using the userDataObj and match profile
-    function displayMatchDetails() {
-        var n = narrowedArray.length;
-        var matchAge;
-        // your match gets the last element in the narrowedArray
-        yourMatch = narrowedArray[n - 1];
-        if (yourMatch.ageRange === "younger") {
-            matchAge = "(18 - 29)";
-        } else if (yourMatch.ageRange === "mid") {
-            matchAge = "(30 - 39)";
-        } else if (yourMatch.ageRange === "older") {
-            matchAge = "(40 - 49)";
-        } else {
-            matchAge = "(none displayed)";
-        }
 
+    function displayUserData() {
         var yourName = "USERNAME";
         if (userDataObj.friendName != "") {
             yourName = userDataObj.friendName;
         }
         var upperYou = yourName.toUpperCase();
-        var matchName = yourMatch.friendName;
-        var upperMatch = matchName.toUpperCase();
 
+        $("#userName").html(upperYou);
+        $("#userBio").html(userDataObj.friendBio);
         if (userDataObj.imageUrl != "") {
             $("#yourImage").attr("src", userDataObj.imageUrl);
         }
-        $("#userName").html(upperYou);
-        $("#userBio").html(userDataObj.friendBio);
+displayMatchDetails();
+    }
+
+
+
+    function shuffleEffect() {
         var shuffleCount = 0;
         // var shuffle = setInterval(shuffleEffect, 1500);
 
@@ -397,15 +390,35 @@
         //             }
 
         //         }
-        finalResult();
+    }
 
-        function finalResult() {
-            $("#matchNameHead").html(upperMatch);
-            $("#matchName").html(upperMatch);
-            $("#matchAge").html(matchAge);
-            $("#yourMatch").attr("src", yourMatch.imageUrl);
-            $("#matchBio").html("Based on your quiz results we should be a great match!!!");
+
+
+
+    // function that displays the match content in the html by using the userDataObj and match profile
+    function displayMatchDetails() {
+        var n = narrowedArray.length;
+        // your match gets the last element in the narrowedArray
+        var yourMatch = narrowedArray[n - 1];
+        var matchAge;
+        var matchName = yourMatch.friendName;
+        var upperMatch = matchName.toUpperCase();
+
+        if (yourMatch.ageRange === "younger") {
+            matchAge = "(18 - 29)";
+        } else if (yourMatch.ageRange === "mid") {
+            matchAge = "(30 - 39)";
+        } else if (yourMatch.ageRange === "older") {
+            matchAge = "(40 - 49)";
+        } else {
+            matchAge = "(none displayed)";
         }
+        $("#matchNameHead").html(upperMatch);
+        $("#matchName").html(upperMatch);
+        $("#matchAge").html(matchAge);
+        $("#yourMatch").attr("src", yourMatch.imageUrl);
+        $("#matchBio").html("Based on your quiz results we should be a great match!!!");
+
     }
     </script>
 </body>
