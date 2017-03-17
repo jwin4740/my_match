@@ -119,7 +119,9 @@
             method: "GET"
         })
         .done(function(data) {
-            userDataObj = data[0];
+                userDataObj = data.pop();
+                console.log(userDataObj);
+            
 
         });
 
@@ -147,11 +149,13 @@
     function tossOut() {
         var userGender = userDataObj.gender;
         var userAgeRange = userDataObj.ageRange;
+        console.log(userAgeRange);
         var n = dataArray.length;
         for (var i = 0; i < n; i++) {
             if (dataArray[i].gender === userGender) {
                 dataArray[i].removalTag = true;
             }
+
             switch (userAgeRange) {
                 case "all":
                     break;
