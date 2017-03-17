@@ -3,12 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>FriendFinder</title>
-    <!--        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Ranga" rel="stylesheet">
-    <link rel="stylesheet" href="style.css"> -->
+    <title>SURVEY PAGE</title>
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
@@ -19,7 +14,6 @@
 <body>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
@@ -83,7 +77,6 @@
                         </select>
                         <br>
                         <br>
-                        <!--   <button type="submit" class="btn btn-primary takeQuiz">Submit</button> -->
                     </form>
                 </div>
             </div>
@@ -277,9 +270,7 @@
                 <br>
                 <br>
                 <div class="text-center">
-                
-                        <button id="submitSurvey" class="btn btn-lg btn-primary" style="background-color: red; color: black; font-weight: bolder; font-size: 24px"><span class="glyphicon glyphicon-check"></span> SUBMIT</button>
-                    
+                    <button id="submitSurvey" class="btn btn-lg btn-primary" style="background-color: red; color: black; font-weight: bolder; font-size: 24px"><span class="glyphicon glyphicon-check"></span> SUBMIT</button>
                 </div>
             </div>
         </div>
@@ -296,7 +287,7 @@
 
     // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
     $("#submitSurvey").on("click", function(event) {
-       
+
         var tempValNum;
         var lAvg = 0;
         var mAvg = 0;

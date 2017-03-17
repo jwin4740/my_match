@@ -111,7 +111,11 @@ p{
 
 .matchbox{
     font-size: 20px;
-    padding: 6px;
+    padding: 10px;
+    background-color: red;
+    color: black;
+    font-weight: bolder;
+    border: solid 5px yellow;
 }
 #userName {
     margin-top: 10px;
@@ -136,4 +140,22 @@ p{
     margin-left: auto;
     margin-right: auto;
     display: block;
+}
+
+.arrow{
+  
+    width: 150px;
+    height: 40px;
+}
+
+.leftarrow{
+    position: absolute;
+    top: 135px;
+ 
+}
+.rightarrow{
+    position: absolute;
+    top: 195px;
+    transform: rotate(180deg);
+ 
 }
