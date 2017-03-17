@@ -60,6 +60,8 @@ input.form-control {
     font-size: 20px;
     width: 60%;
     color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
 }
 
 .pink {
@@ -105,11 +107,12 @@ h1.res {
     margin-top: 0px;
     font-size: 48px;
 }
-p{
+
+p {
     margin-bottom: 0px;
 }
 
-.matchbox{
+.matchbox {
     font-size: 20px;
     padding: 10px;
     background-color: red;
@@ -117,6 +120,7 @@ p{
     font-weight: bolder;
     border: solid 5px yellow;
 }
+
 #userName {
     margin-top: 10px;
     text-align: center;
@@ -142,20 +146,18 @@ p{
     display: block;
 }
 
-.arrow{
-  
+.arrow {
     width: 150px;
     height: 40px;
 }
 
-.leftarrow{
+.leftarrow {
     position: absolute;
     top: 135px;
- 
 }
-.rightarrow{
+
+.rightarrow {
     position: absolute;
     top: 195px;
     transform: rotate(180deg);
- 
 }

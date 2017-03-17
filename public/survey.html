@@ -23,17 +23,16 @@
                 </button>
                 <a class="navbar-brand" href="/">HOME</a>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="/survey">Take Survey<span class="sr-only">(current)</span></a></li>
+                    <li><a href="/survey">Take Survey</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a target="_blank" href="/api/friends">API link</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Explore <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a target="_blank" href="jamesjwinkle.herokuapp.com">James Portfolio</a></li>
+                            <li><a target="_blank" href="http://jamesjwinkle.herokuapp.com">James Portfolio</a></li>
                             <li><a target="_blank" href="https://github.com/jwin4740">James's Github</a></li>
                             <li><a target="_blank" href="#">James's YouTube Code Walkthroughs</a></li>
                         </ul>
@@ -276,30 +275,27 @@
         </div>
     </div>
     <script type="text/javascript">
-    var nameArray = [];
+    //--------------------------------------------------------------------------------------------------------
+    // Basic functional overview: The user answers 12 questions on a scale of 1 to 10. The questions each have
+    // a category associated them: leisure, moral, interests, and superficiality. The user's answers are
+    // averaged and stored in a userObject where they are compared with the profiles averages in the data file
+    // A compatability score is calculated based on how similar their averages are.
+    //---------------------------------------------------------------------------------------------------------
+    // global variables
+    var tempValNum;
+    var lAvg = 0;
+    var mAvg = 0;
+    var iAvg = 0;
+    var sAvg = 0;
+    var w = [];
+    var x = [];
+    var y = [];
+    var z = [];
 
 
-    // Here we grab the form elements
-
-
-
-
-
-    // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
+    // all the functionality of the survey is fired with the onclick event
     $("#submitSurvey").on("click", function(event) {
-
-        var tempValNum;
-        var lAvg = 0;
-        var mAvg = 0;
-        var iAvg = 0;
-        var sAvg = 0;
-        var w = [];
-        var x = [];
-        var y = [];
-        var z = [];
-
-        var nameArray = [];
-        // pushes the user's answers into four different arrays for teh different question categories
+        // grabs the users answer values fromt he form and pushes them into four different arrays for the different question categories then calculates the average for each category
         for (var i = 1; i < 13; i++) {
             var dataCat = $("#q" + i).attr("data-cat");
             var tempVal = $("#q" + i).val();
@@ -329,18 +325,13 @@
                         mAvg = mAvg / 3;
                         iAvg = iAvg / 3;
                         sAvg = sAvg / 3;
-                        console.log(lAvg);
-                        console.log(mAvg);
-                        console.log(iAvg);
-                        console.log(sAvg);
                     }
                 }
-
             }
         }
-        // constructs user profile object based on their inputs and answers
+        // constructs user data object based on user inputs and answers
+        // multiplyer and reducer discussed in results js script
         var userData = {
-
             friendName: $("#friend-name").val(),
             friendEmail: $("#friend-email").val(),
             imageUrl: $("#friend-image").val(),
@@ -357,30 +348,17 @@
             interestsAverage: iAvg,
             superficialityAverage: sAvg
         };
-        console.log("hello" + userData);
         setTimeout(postIt, 1000);
 
-
+        // posts user Data object to the appropriate url
         function postIt() {
-            console.log(userData);
             $.ajax({
                     url: "/api/user",
                     data: userData,
                     method: "POST"
                 })
                 .done(function(data) {
-                    // $.post("/api/friends", newFriend,
-                    //   function(data) {
-                    console.log(data[0]);
-
-                    // Clear the form when submitting
-                    $("#friend-name").val("");
-                    $("#friend-email").val("");
-
-                    $("#friend-number").val("");
-                    $("#friend-image").val("");
-
-                    $("#gender").val("");
+                    // when the data is posted, you are redirected to the results page
                     var url = "/results";
                     $(location).attr('href', url);
 

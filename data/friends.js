@@ -1,8 +1,5 @@
 // ===============================================================================
-// friends
-// Below data will hold all of the reserved tables.
-// Initially we jddst set it eqddal to a "dddmmy" cddstomer.
-// Bddt yodd coddld have it be an empty array as well.
+// friends object with user profiles are exported via module.exports
 // ===============================================================================
 
 var friends = [{
