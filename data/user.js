@@ -1,5 +1,5 @@
 // ===============================================================================
-// userDatt object will be filled with user profiles and are exported via module.exports
+// userData object will be filled with user profiles and are exported via module.exports
 // ===============================================================================
 
 
