@@ -121,7 +121,6 @@
     function tossOut() {
         var userGender = userDataObj.gender;
         var userAgeRange = userDataObj.ageRange;
-        console.log(userAgeRange);
         var n = dataArray.length;
         for (var i = 0; i < n; i++) {
             // ensures that the user gets a match of the opposite gender
@@ -177,15 +176,15 @@
                         break;
                     case (userDataObj.multiplyer === "morals" && j === 1):
                         maximizer = 2.5;
-                        console.log("moralsfire");
+
                         break;
                     case (userDataObj.multiplyer === "interests" && j === 2):
                         maximizer = 2.5;
-                        console.log("interestsfire");
+
                         break;
                     case (userDataObj.multiplyer === "superficiality" && j === 3):
                         maximizer = 2.5;
-                        console.log("superficialityfire");
+
                         break;
                     default:
                         break;
@@ -193,19 +192,19 @@
                 switch (true) {
                     case (userDataObj.reducer === "leisure" && j === 0):
                         minimizer = 0.5;
-                        console.log("leisurefire");
+
                         break;
                     case (userDataObj.reducer === "morals" && j === 1):
                         minimizer = 0.5;
-                        console.log("moralsfire");
+
                         break;
                     case (userDataObj.reducer === "interests" && j === 2):
                         minimizer = 0.5;
-                        console.log("interestsfire");
+
                         break;
                     case (userDataObj.reducer === "superficiality" && j === 3):
                         minimizer = 0.5;
-                        console.log("superficialityfire");
+
                         break;
                     default:
                         break;
@@ -279,9 +278,7 @@
                 }
             }
         }
-
         displayMatchDetails();
-
     }
 
     // function that displays the match content in the html by using the userDataObj and match profile
@@ -312,6 +309,7 @@
         $("#matchAge").html(matchAge);
         $("#matchBio").html("");
         $("#yourMatch").attr("src", yourMatch.imageUrl);
+        $("#yourImage").attr("src", userDataObj.imageUrl);
         $("#userName").html(upperYou);
         $("#userBio").html(userDataObj.friendBio);
     }
