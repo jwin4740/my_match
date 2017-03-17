@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tables Page</title>
+    <!-- Latest compiled and minified CSS & JS -->
+    <!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
+    <!-- 
+
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Ranga" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Ranga" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!--     <style>
+.matchResult {
+        border-radius: 5px;
+        height: 200px;
+        width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+    </style> -->
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">HOME</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="/survey">Take Survey<span class="sr-only">(current)</span></a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a target="_blank" href="/api/friends">API link</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Explore <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a target="_blank" href="jamesjwinkle.herokuapp.com">James Portfolio</a></li>
+                            <li><a target="_blank" href="https://github.com/jwin4740">James's Github</a></li>
+                            <li><a target="_blank" href="#">James's YouTube Code Walkthroughs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container main">
+        <div class="mainBanner">
+            <h1 class="text-center res"><span class="glyphicon glyphicon-user"></span> Your Match <span class="glyphicon glyphicon-user"></span></h1>
+            <br>
+            <div class="row">
+                <div class="col-lg-1">
+                </div>
+                <div class="col-lg-4">
+                    <!-- Current Tables in Use -->
+                    <div class="panel panel-default matchbox">
+                        <div class="panel-heading">
+                            <h4 style="font-size: 36px;" class="panel-title">You</h4>
+                        </div>
+                        <div class="panel-body matcher" id="you">
+                            <img class="matchResult" id="yourImage" src="./images/Placeholder.png">
+                            <h3 id="userName"></h3>
+                            <strong><p class="bio">AGE: (none) <span id="userAge"></span></p></strong>
+                            <br>
+                            <strong><p class="bio">SHORT BIO: <span id="userBio"></span> </p></strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                </div>
+                <div class="col-lg-4">
+                    <!-- Current Tables in Use -->
+                    <div class="panel panel-default matchbox">
+                        <div class="panel-heading">
+                            <h4 style="font-size: 36px;" class="panel-title">Your match</h4>
+                        </div>
+                        <div class="panel-body matcher">
+                            <img src="https://uwmccblog.files.wordpress.com/2017/01/image-placeholder-500x500.jpg?w=200" class="matchResult" id="yourMatch">
+                            <h3 id="matchName"></h3>
+                            <strong><p class="bio">AGE: <span id="matchAge"></span></p></strong>
+                            <br>
+                            <strong><p class="bio">SHORT BIO: <span id="matchBio"></span></p></strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    var dataArray = [];
+    var userDataObj = "";
+    var narrowedArray = [];
+    var yourMatch;
+    var scaled;
+
+    $.ajax({
+            url: "/api/user",
+            method: "GET"
+        })
+        .done(function(data) {
+            userDataObj = data[0];
+
+        });
+
+    $.ajax({
+            url: "/api/friends",
+            method: "GET"
+        })
+        .done(function(data) {
+            var n = data.length;
+            getData();
+
+            function getData() {
+                for (var i = 0; i < n; i++) {
+
+                    dataArray.push(data[i]);
+
+                }
+                setTimeout(tossOut, 1000);
+            }
+        });
+
+
+
+    // will toss out people who meet certain requirements
+    function tossOut() {
+        var userGender = userDataObj.gender;
+        var userAgeRange = userDataObj.ageRange;
+        var n = dataArray.length;
+        for (var i = 0; i < n; i++) {
+            if (dataArray[i].gender === userGender) {
+                dataArray[i].removalTag = true;
+            }
+            switch (userAgeRange) {
+                case "all":
+                    break;
+                case "younger":
+                    if (dataArray[i].ageRange === "mid" || dataArray[i].ageRange === "older") {
+                        dataArray[i].removalTag = true;
+                    }
+                    break;
+                case "mid":
+                    if (dataArray[i].ageRange === "younger" || dataArray[i].ageRange === "older") {
+                        dataArray[i].removalTag = true;
+                    }
+                    break;
+                case "older":
+                    if (dataArray[i].ageRange === "younger" || dataArray[i].ageRange === "mid") {
+                        dataArray[i].removalTag = true;
+                    }
+                    break;
+            }
+        }
+        for (var i = 0; i < n; i++) {
+            if (dataArray[i].removalTag != true) {
+                narrowedArray.push(dataArray[i]);
+            }
+        }
+
+
+        getCompatibilityScores();
+    }
+
+    var categoryArray = ["leisure", "morals", "interests", "superficiality"];
+
+    function getCompatibilityScores() {
+        var n = narrowedArray.length;
+        for (var i = 0; i < n; i++) {
+            for (var j = 0; j < 4; j++) {
+                var maximizer = 1;
+                var minimizer = 1;
+                var num = 0;
+                switch (true) {
+                    case (userDataObj.multiplyer === "leisure" && j === 0):
+                        maximizer = 2.5;
+                        break;
+                    case (userDataObj.multiplyer === "morals" && j === 1):
+                        maximizer = 2.5;
+                        console.log("moralsfire");
+                        break;
+                    case (userDataObj.multiplyer === "interests" && j === 2):
+                        maximizer = 2.5;
+                        console.log("interestsfire");
+                        break;
+                    case (userDataObj.multiplyer === "superficiality" && j === 3):
+                        maximizer = 2.5;
+                        console.log("superficialityfire");
+                        break;
+                    default:
+                        break;
+                }
+                switch (true) {
+                    case (userDataObj.reducer === "leisure" && j === 0):
+                        minimizer = 0.5;
+                        console.log("leisurefire");
+                        break;
+                    case (userDataObj.reducer === "morals" && j === 1):
+                        minimizer = 0.5;
+                        console.log("moralsfire");
+                        break;
+                    case (userDataObj.reducer === "interests" && j === 2):
+                        minimizer = 0.5;
+                        console.log("interestsfire");
+                        break;
+                    case (userDataObj.reducer === "superficiality" && j === 3):
+                        minimizer = 0.5;
+                        console.log("superficialityfire");
+                        break;
+                    default:
+                        break;
+                }
+                // var num = (Math.abs((narrowedArray[i].surveyResults[j].average) - (userDataObj.surveyResults[j].average)));
+                switch (true) {
+                    case (j === 0):
+                        num = Math.abs(parseInt(userDataObj.leisureAverage) - narrowedArray[i].leisureAverage);
+                        break;
+                    case (j === 1):
+                        num = Math.abs(parseInt(userDataObj.moralsAverage) - narrowedArray[i].moralsAverage);
+                        break;
+                    case (j === 2):
+                        num = Math.abs(parseInt(userDataObj.interestsAverage) - narrowedArray[i].interestsAverage);
+                        break;
+                    case (j === 3):
+                        num = Math.abs(parseInt(userDataObj.superficialityAverage) - narrowedArray[i].superficialityAverage);
+                        break;
+                }
+
+                var num = num.toFixed(2);
+                var scaled = 0;
+                switch (true) {
+                    case (num < 1):
+                        scaled = 10 * minimizer * maximizer;
+                        break;
+                    case (num >= 1 && num < 2):
+                        scaled = 8 * minimizer * maximizer;
+                        break;
+                    case (num >= 2 && num < 3):
+                        scaled = 6 * minimizer * maximizer;
+                        break;
+                    case (num >= 3 && num < 4):
+                        scaled = 5 * minimizer * maximizer;
+                        break;
+                    case (num >= 4 && num < 5):
+                        scaled = 4 * minimizer * maximizer;
+                        break;
+                    case (num >= 5 && num < 6):
+                        scaled = 2 * minimizer * maximizer;
+                        break;
+                    case (num >= 6):
+                        scaled = 0;
+                        break;
+                }
+
+                narrowedArray[i].compatibilityScore += scaled;
+            }
+        }
+        sortResults();
+    }
+
+
+    function sortResults() {
+        var n = narrowedArray.length;
+        var temp;
+        for (var i = 0; i < n; i++) {
+            for (var j = 0; j < n; j++) {
+                if (j === n - 1) {
+                    break;
+                }
+                if (narrowedArray[j].compatibilityScore > narrowedArray[j + 1].compatibilityScore) {
+                    temp = narrowedArray[j];
+                    narrowedArray[j] = narrowedArray[j + 1];
+                    narrowedArray[j + 1] = temp;
+                }
+            }
+        }
+
+        displayMatchDetails();
+
+    }
+
+
+    function displayMatchDetails() {
+        var n = narrowedArray.length;
+        yourMatch = narrowedArray[n - 1];
+        console.log(yourMatch.friendName);
+        var matchAge;
+        if (yourMatch.ageRange === "younger") {
+            matchAge = "(18 - 29)";
+        } else if (yourMatch.ageRange === "mid") {
+            matchAge = "(30 - 39)";
+        } else if (yourMatch.ageRange === "older") {
+            matchAge = "(40 - 49)";
+        } else {
+            matchAge = "(none displayed)";
+        }
+
+        var yourName = userDataObj.friendName;
+        var upperYou = yourName.toUpperCase();
+
+        var matchName = yourMatch.friendName;
+        var upperMatch = matchName.toUpperCase();
+        $("#matchName").html(upperMatch);
+        $("#matchAge").html(matchAge);
+        $("#matchBio").html("");
+        $("#yourMatch").attr("src", yourMatch.imageUrl);
+        $("#userName").html(upperYou);
+        $("#userBio").html(userDataObj.friendBio);
+    }
+    </script>
+</body>
+
+</html>

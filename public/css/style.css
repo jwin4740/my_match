@@ -1,0 +1,139 @@
+body {
+    background-image: url("../images/red.jpg");
+    background-size: cover;
+}
+
+.navbar-default {
+    background-color: red;
+    border: solid 1px red;
+    border-radius: 0px;
+    height: 55px;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+    font-weight: bolder;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: black;
+}
+
+.dropdown-menu {
+    background-color: #C0C0C0;
+    border-radius: 5px;
+    opacity: 0.8;
+}
+
+.mainBanner {
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Ranga', cursive;
+    margin-top: auto;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 10px;
+    background-color: #C0C0C0;
+    border: solid #C0C0C0 5px;
+    opacity: 0.9;
+    border-radius: 5px;
+}
+
+#questionsDiv {
+    margin-left: 15px;
+}
+
+label {
+    font-size: 26px;
+}
+
+.personal {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 5px;
+}
+
+input.form-control {
+    background-color: red;
+    font-size: 20px;
+    width: 60%;
+    color: black;
+}
+
+.pink {
+    background-image: url("../images/red.jpg");
+    background-size: cover;
+}
+
+.blue {
+    background-color: transparent;
+}
+
+h3 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 35px;
+}
+
+h4 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+select {
+    background-color: red;
+    color: black;
+    font-weight: bolder;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 0px 5px 0px 5px;
+}
+
+.headerimage {
+    margin-top: 8px;
+    margin-right: auto;
+    margin-left: auto;
+    /*  width: 600px;*/
+    height: 200px;
+    display: block;
+    border-radius: 5px;
+}
+
+h1.res {
+    margin-top: 0px;
+    font-size: 48px;
+}
+p{
+    margin-bottom: 0px;
+}
+
+.matchbox{
+    font-size: 20px;
+    padding: 6px;
+}
+#userName {
+    margin-top: 10px;
+    text-align: center;
+    display: block;
+}
+
+#matchName {
+    margin-top: 10px;
+    text-align: center;
+    display: block;
+}
+
+.matcher {
+    height: 350px;
+}
+
+.matchResult {
+    border-radius: 5px;
+    height: 200px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}

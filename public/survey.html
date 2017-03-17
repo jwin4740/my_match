@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FriendFinder</title>
+    <!--        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Ranga" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Ranga" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">HOME</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="/survey">Take Survey<span class="sr-only">(current)</span></a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a target="_blank" href="/api/friends">API link</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Explore <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a target="_blank" href="jamesjwinkle.herokuapp.com">James Portfolio</a></li>
+                            <li><a target="_blank" href="https://github.com/jwin4740">James's Github</a></li>
+                            <li><a target="_blank" href="#">James's YouTube Code Walkthroughs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container main">
+        <div class="mainBanner">
+            <div class="row personal">
+                <div class="col-lg-10 personal">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="friend-name">Name</label>
+                            <input type="text" class="form-control" id="friend-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="friend-email">Email</label>
+                            <input type="text" class="form-control" id="friend-email">
+                        </div>
+                        <div class="form-group">
+                            <label for="friend-image">Image url (must be a full link to an image file)</label>
+                            <input type="text" class="form-control" id="friend-image">
+                        </div>
+                        <div class="form-group">
+                            <label for="friend-bio">Short Bio</label>
+                            <input type="text" class="form-control" id="friend-bio">
+                        </div>
+                        <h4>Are you male or female</h4>
+                        <select data-placeholder="" class="chosen-select" id="gender">
+                            <option value="male">male</option>
+                            <option value="female">female</option>
+                        </select>
+                        <h4>What is an acceptable age range for your match?</h4>
+                        <select data-placeholder="" class="chosen-select" id="ageRange">
+                            <option value="younger">18 to 29</option>
+                            <option value="mid">30 to 39</option>
+                            <option value="older">40 to 49</option>
+                            <option value="all"> no preference</option>
+                        </select>
+                        <br>
+                        <br>
+                        <!--   <button type="submit" class="btn btn-primary takeQuiz">Submit</button> -->
+                    </form>
+                </div>
+            </div>
+            <div id="questionsDiv">
+                <h3><strong>Question 1</strong></h3>
+                <h4>Most moral decisions are based on absolute truth.</h4>
+                <select data-placeholder="" class="chosen-select" data-cat="morals" id="q1">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <h3><strong>Question 2</strong></h3>
+                <h4>Physical appearance is an extremely important factor in a relationship.</h4>
+                <select data-placeholder="" class="chosen-select" data-cat="superficiality" id="q2">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <h3><strong>Question 3</strong></h3>
+                <h4>I tend to be more of a scientist than an artist.</h4>
+                <select data-placeholder="" class="chosen-select" data-cat="interests" id="q3">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <h3><strong>Question 4</strong></h3>
+                <h4>I would rather go partying on a weekend than staying home with my significant other.</h4>
+                <select data-placeholder="" class="chosen-select" data-cat="leisure" id="q4">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <h3><strong>Question 5</strong></h3>
+                <h4>Think of the top 3  material things (not people or career related) that are most important to you. How disruptive would this be (10 is most disruptive)? </h4>
+                <select data-placeholder="" class="chosen-select" data-cat="superficiality" id="q5">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <h3><strong>Question 6</strong></h3>
+                <h4>Fidelity, honesty, and loyalty are very important in a relationship.</h4>
+                <select data-placeholder="" class="chosen-select" data-cat="morals" id="q6">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <h3><strong>Question 7</strong></h3>
+                <h4>When trying new activities, I like some risk and uncertainty.</h4>
+                <select data-placeholder="" class="chosen-select" data-cat="interests" id="q7">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <h3><strong>Question 8</strong></h3>
+                <h4>I love a good television show/series.</h4>
+                <select data-placeholder="" class="chosen-select" data-cat="leisure" id="q8">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <h3><strong>Question 9</strong></h3>
+                <h4>How important is admitting your key mistakes to your partner?</h4>
+                <select data-placeholder="" class="chosen-select" data-cat="morals" id="q9">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <h3><strong>Question 10</strong></h3>
+                <h4>Spending free time outdoors is very important to me.</h4>
+                <select data-placeholder="" class="chosen-select" data-cat="leisure" id="q10">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <h3><strong>Question 11</strong></h3>
+                <h4>How much do you enjoy buying the latest technology and fashion?</h4>
+                <select data-placeholder="" class="chosen-select" data-cat="superficiality" id="q11">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <h3><strong>Question 12</strong></h3>
+                <h4>You would rather have a small group of very close friends than a very large group of acquaintances. </h4>
+                <select data-placeholder="" class="chosen-select" data-cat="interests" id="q12">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <br>
+                <h3> Preferences </h3>
+                <h4>Are there any qualities and/or activities that you wish you and your match shared? </h4>
+                <select data-placeholder="" class="chosen-select" id="multiplyer">
+                    <option value="leisure">relaxation and leisure</option>
+                    <option value="morals">morality</option>
+                    <option value="interests">interests</option>
+                    <option value="superficiality">superficiality</option>
+                    <option value="none">None in particular</option>
+                </select>
+                <h4>Are there any qualities and/or activities that are not very important to you in the matching process? </h4>
+                <select data-placeholder="" class="chosen-select" id="reducer">
+                    <option value="leisure">relaxation and leisure</option>
+                    <option value="morals">morality</option>
+                    <option value="interests">interests</option>
+                    <option value="superficiality">superficiality</option>
+                    <option value="none">None in particular</option>
+                </select>
+                <br>
+                <br>
+                <div class="text-center">
+                
+                        <button id="submitSurvey" class="btn btn-lg btn-primary" style="background-color: red; color: black; font-weight: bolder; font-size: 24px"><span class="glyphicon glyphicon-check"></span> SUBMIT</button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    var nameArray = [];
+
+
+    // Here we grab the form elements
+
+
+
+
+
+    // The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
+    $("#submitSurvey").on("click", function(event) {
+       
+        var tempValNum;
+        var lAvg = 0;
+        var mAvg = 0;
+        var iAvg = 0;
+        var sAvg = 0;
+        var w = [];
+        var x = [];
+        var y = [];
+        var z = [];
+
+        var nameArray = [];
+        // pushes the user's answers into four different arrays for teh different question categories
+        for (var i = 1; i < 13; i++) {
+            var dataCat = $("#q" + i).attr("data-cat");
+            var tempVal = $("#q" + i).val();
+            tempValNum = parseInt(tempVal);
+            switch (dataCat) {
+                case "leisure":
+                    w.push(tempValNum);
+                    break;
+                case "morals":
+                    x.push(tempValNum);
+                    break;
+                case "interests":
+                    y.push(tempValNum);
+                    break;
+                case "superficiality":
+                    z.push(tempValNum);
+                    break;
+            }
+            if (i === 12) {
+                for (var j = 0; j < 3; j++) {
+                    lAvg += w[j];
+                    mAvg += x[j];
+                    iAvg += y[j];
+                    sAvg += z[j];
+                    if (j === 2) {
+                        lAvg = lAvg / 3;
+                        mAvg = mAvg / 3;
+                        iAvg = iAvg / 3;
+                        sAvg = sAvg / 3;
+                        console.log(lAvg);
+                        console.log(mAvg);
+                        console.log(iAvg);
+                        console.log(sAvg);
+                    }
+                }
+
+            }
+        }
+        // constructs user profile object based on their inputs and answers
+        var userData = {
+
+            friendName: $("#friend-name").val().trim(),
+            friendEmail: $("#friend-email").val().trim(),
+            imageUrl: $("#friend-image").val().trim(),
+            shortBio: $("#friend-bio").val().trim(),
+            ageRange: $("#ageRange").val().trim(),
+            gender: $("#gender").val(),
+            multiplyer: $("#multiplyer").val(),
+            reducer: $("#reducer").val(),
+            compatibilityScore: 0,
+            realPerson: true,
+            removalTag: "",
+            leisureAverage: lAvg,
+            moralsAverage: mAvg,
+            interestsAverage: iAvg,
+            superficialityAverage: sAvg
+        };
+        console.log("hello" + userData);
+        setTimeout(postIt, 1000);
+
+
+        function postIt() {
+            console.log(userData);
+            $.ajax({
+                    url: "/api/user",
+                    data: userData,
+                    method: "POST"
+                })
+                .done(function(data) {
+                    // $.post("/api/friends", newFriend,
+                    //   function(data) {
+                    console.log(data[0]);
+
+                    // Clear the form when submitting
+                    $("#friend-name").val("");
+                    $("#friend-email").val("");
+
+                    $("#friend-number").val("");
+                    $("#friend-image").val("");
+
+                    $("#gender").val("");
+                    var url = "/results";
+                    $(location).attr('href', url);
+
+                });
+        }
+    });
+    </script>
+</body>
+
+</html>
