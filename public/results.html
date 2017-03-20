@@ -64,23 +64,6 @@
                 </div>
                 <div class="col-lg-4">
                     <div id="animationStage">
-                        <!--  <div class="panel panel-default matchboxone">
-                            <div class="panel-body matcher">
-                                <img src="https://uwmccblog.files.wordpress.com/2017/01/image-placeholder-500x500.jpg?w=200" class="matchResult">
-                                <h6>MATCHNAME</h6>
-                                <strong><p class="bio">AGE: <span></span></p></strong>
-                                <strong><p class="bio">SHORT BIO: <span></span></p></strong>
-                            </div>
-                        </div>
-                        <div class="panel panel-default matchboxtwo">
-                            <div class="panel-body matcher">
-                                <img src="https://uwmccblog.files.wordpress.com/2017/01/image-placeholder-500x500.jpg?w=200" class="matchResult">
-                                <h6>MATCHNAME<h6>
-                                <strong><p class="bio">AGE: <span></span></p></strong>
-                                <strong><p class="bio">SHORT BIO: <span></span></p></strong>
-                            </div>
-                        </div> -->
-<!--     ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd -->
                         <div class="panel panel-default matchbox">
                             <div class="panel-body matcher">
                                 <img src="https://uwmccblog.files.wordpress.com/2017/01/image-placeholder-500x500.jpg?w=200" class="matchResult" id="yourMatch">
@@ -89,23 +72,6 @@
                                 <strong><p class="bio">SHORT BIO: <span id="matchBio"></span></p></strong>
                             </div>
                         </div>
-<!-- ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd- -->
-                        <!--       <div class="panel panel-default matchboxthree">
-                            <div class="panel-body matcher">
-                                <img src="https://uwmccblog.files.wordpress.com/2017/01/image-placeholder-500x500.jpg?w=200" class="matchResult"> 
-                                <h6>MATCHNAME</h6>
-                                <strong><p class="bio">AGE: <span></span></p></strong>
-                                <strong><p class="bio">SHORT BIO: <span></span></p></strong>
-                            </div>
-                        </div>
-                        <div class="panel panel-default matchboxfour">
-                            <div class="panel-body matcher">
-                                <img src="https://uwmccblog.files.wordpress.com/2017/01/image-placeholder-500x500.jpg?w=200" class="matchResult">
-                                <h6>MATCHNAME</h6>
-                                <strong><p class="bio">AGE: <span></span></p></strong>
-                                <strong><p class="bio">SHORT BIO: <span></span></p></strong>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
             </div>
@@ -331,8 +297,8 @@
             yourName = userDataObj.friendName;
         }
 
-         if (userDataObj.friendName == "") {
-           userDataObj.friendName = "USERNAME";
+        if (userDataObj.friendName == "") {
+            userDataObj.friendName = "USERNAME";
         }
 
         var upperYou = yourName.toUpperCase();
@@ -342,63 +308,8 @@
         if (userDataObj.imageUrl != "") {
             $("#yourImage").attr("src", userDataObj.imageUrl);
         }
-displayMatchDetails();
+        displayMatchDetails();
     }
-
-
-
-    function shuffleEffect() {
-        var shuffleCount = 0;
-        // var shuffle = setInterval(shuffleEffect, 1500);
-
-        var x = 0;
-
-        //         function shuffleEffect() {
-        //             var n = shuffleArray.length;
-        //             var randNum = Math.floor(Math.random() * n);
-        //             var matchAgeTemp;
-        //             if (shuffleArray[randNum].ageRange === "younger") {
-        //                 matchAgeTemp = "(18 - 29)";
-        //             } else if (shuffleArray[randNum].ageRange === "mid") {
-        //                 matchAgeTemp = "(30 - 39)";
-        //             } else if (shuffleArray[randNum].ageRange === "older") {
-        //                 matchAgeTemp = "(40 - 49)";
-        //             } else {
-        //                 matchAgeTemp = "(none displayed)";
-        //             }
-        //             var matchNameTemp = shuffleArray[randNum].friendName;
-        //             var upperMatchTemp = matchNameTemp.toUpperCase();
-        //             var borderArray = ["solid 10px purple", "solid 10px yellow", "solid 10px blue", "solid 10px white", "solid 10px black"];
-
-
-        // // 4,3,1,2
-        //             $(".matchboxfour").css("border", borderArray[x + 5] % 5);
-        //             $(".matchboxthree").css("border", borderArray[(x + 1) % 5]);
-        //             $(".matchbox").css("border", borderArray[(x + 2) % 5]);
-        //             $(".matchboxone").css("border", borderArray[(x + 3) % 5]);
-        //             $(".matchboxtwo").css("border", borderArray[(x + 4) % 5]);
-
-
-
-        //             x++;
-
-
-
-        //             $("#matchNameHead").html(upperMatchTemp);
-        //             $("#matchName").html(upperMatchTemp);
-        //             $("#matchAge").html(matchAgeTemp);
-        //             $("#yourMatch").attr("src", shuffleArray[randNum].imageUrl);
-        //             shuffleCount++;
-        //             if (shuffleCount > 20) {
-        //                 finalResult();
-        //                 clearInterval(shuffle);
-        //             }
-
-        //         }
-    }
-
-
-
 
     // function that displays the match content in the html by using the userDataObj and match profile
     function displayMatchDetails() {
